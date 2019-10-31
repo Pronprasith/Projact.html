@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume</title>
+<link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+
+<body id="body">
+<div class="container">
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a onclick="back1()">background1</a></li>
+                <li><a onclick="back2()">background2</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <section class="hero">
+            <img id="imgs1" onmouseover="setMonuse()" onmouseout="setOldMonuse()" src="images/pf.jpg" />
+            <div class="hero-content">
+                <h1>Pronprasith<br>Sangiamsakulsuk</h1>
+                <p>nickname: Sith</p>
+                <a class="action-btn" href="#" onclick="newElementedu()">Education</a>
+                <ul>
+                    <li>netwNakprasith School</li>
+                    <li>In education:Southeast Asia University</li>
+                </ul>
+                <a class="action-btn" href="#" onclick="newElement()">Add Skill</a>
+                        <input type="text" placeholder="add new Skill" id="InputSkill">
+                        <ul id="myskill">
+                            <li>Play basketball</li>
+                        </ul>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function setMonuse(){
+    document.getElementById("imgs1").src="images/kid.jpg";
+}
+function setOldMonuse(){
+    document.getElementById("imgs1").src="images/pf.jpg";
+}
+
+
+    var close = document.getElementsByClassName("close");
+     var i;
+     for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.display = "none";
+        }
+    }
+    function newElement() {
+    var li = document.createElement("li");
+    var inputValue = document.getElementById("InputSkill").value;
+    var y = document.createTextNode(inputValue);
+    li.appendChild(y);
+    if (inputValue === '') {
+        alert("Please enter capabilities");
+    } else {
+        document.getElementById("myskill").appendChild(li);
+    }
+    document.getElementById("InputSkill").value = "";
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.display = "none";
+        }
+    }
+}
+function back1(){
+    document.getElementById('body').style.backgroundImage="url('https://www.beartai.com/wp-content/uploads/2016/02/Galaxy-S7-edge-5-knox.jpg')";
+};
+function back2(){
+    document.getElementById('body').style.backgroundImage="url('https://news.pdamobiz.com/wp-content/uploads/2016/12/Samsung-Galaxy-A-Wallpaper-04.jpg')";
+};
+</script>
+
+</body>
+</html>
